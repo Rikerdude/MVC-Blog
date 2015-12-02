@@ -11,13 +11,33 @@
 
 @foreach (BlogIndex bl in Model)
 {
-    <b>@bl.Post.Overskrift</b>
+    <table class="RB">
+        <tr>
+            <td>
+                <b>@bl.Post.Overskrift</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="tekst">@bl.Post.Tekst</p>
+                <i>
+                    @bl.Post.Forfatter
+                    @bl.Post.Dato
+                </i>
+            </td>
+            <td>
+                @if (bl.Billeder.Count > 0)
+                {
+                    <img src="/helpers/Images/@bl.Billeder[0].Filnavn" height="250"/>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/blog/Edit/@bl.Post.ID">Rediger</a>
+                <a href="/blog/Delete/@bl.Post.ID">Slet</a>
+            </td>
+        </tr>
+    </table>
     <br/>
-    <p>@bl.Post.Tekst</p>
-    <br/>
-
-    foreach (Billede b in bl.Billeder)
-    {
-        @b.Filnavn
-    }
 }

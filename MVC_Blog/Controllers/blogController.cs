@@ -16,5 +16,27 @@ namespace MVC_Blog.Controllers
         {
             return View(pf.GetIndexData());
         }
+
+        public ActionResult Edit(int id)
+        {
+            return View(pf.Get(id));
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Post p)
+        {
+            p.Dato = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {
+                pf.Update(p);
+            }
+            return View(pf.Get(p.ID));
+        }
+
+        public ActionResult Delete(int id)
+        {
+            
+        }
     }
 }

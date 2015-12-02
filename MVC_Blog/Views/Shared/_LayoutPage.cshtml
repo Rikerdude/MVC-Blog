@@ -4,10 +4,19 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/helpers/stylelayout.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
+<header>
+    <a href="/blog/Index"><img src="/helpers/Images/mmorpg_logo.jpg"/></a>
+</header>
+<nav>
+    <a href="/blog/index">Home</a>
+    <a href="#">Forum</a>
+    <a href="#">About</a>
+</nav>
+<div>
+    @RenderBody()@*Her er indeholdet det der svare til placeholder!*@
+</div>
 </body>
 </html>
